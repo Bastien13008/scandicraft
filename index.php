@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,153 +28,14 @@ Created by Jerred Shepherd (RiotShielder) -->
 <!-- Navbar Start -->
 
 <body>
-    <div class="navbar-wrapper">
-
-            <div class="navbar navbar-default navbar-fixed navbar-static-top" role="navigation">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand accent" href="">ScandiCraft</a>
-                    </div>
-                    <div class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav">
-                            <li class="active"><a href="index.html"><i class="fa fa-home"></i> Acceuil</a>
-                            </li>
-                            <li><a href="play.php"><i class="fa fa-gamepad"></i> Jouer</a>
-                            </li>
-                            <li><a href="forum"><i class="fa fa-comments-o"></i> Article</a>
-                            </li>
-                            <li><a href="shop.html"><i class="fa fa-shopping-cart"></i> Boutique</a>
-                            </li>
-                            <li><a href="vote.html"><i class="fa fa-check-square-o"></i> Vote</a>
-                            </li>
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="dropdown">
-<?php
-if (isset($_SESSION["pseudo"])) {
-    echo '
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> '. $_SESSION["pseudo"] .' <b class="caret"></b></a>
-    <ul class="dropdown-menu">
-        <li><a href="#" data-toggle="modal" data-target="#profil">Profil</a>
-        </li>
-        <li><a href="logout.php">Deconnexion</a>
-        </li>
-        ';
-
-} else {
-    echo '
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Compte <b class="caret"></b></a>
-    <ul class="dropdown-menu">
-        <li><a href="#" data-toggle="modal" data-target="#login">Login</a>
-        </li>
-        <li><a href="#" data-toggle="modal" data-target="#signup">Register</a>
-        </li>
-        ';}
+  <?php
+require_once 'navbar.php'; 
 ?>
 
-                                </ul>
-                            </li>
-                            <a href="play.php" class="btn btn-info navbar-btn navbar-right hidden-sm hidden-xs">IP: play.scandicraft.net</a>
-                        </ul>
-                    </div>
-                </div>
-            </div>
 
-    </div>
+
 
     
-    <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="signup" aria-hidden="true">
-  <div class="modal-dialog px-4">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="joinHelpLabel">Connexion - Panel</h4>
-      </div>
-
-      <div class="mx-auto">
-        <form method="POST" action="inscription.php">
-          <div>
-            <label for="pseudo">Pseudo :</label>
-            <input type="text" id="pseudo" name="pseudo" required>
-          </div>
-          <div>
-            <label for="email">Email :</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-          <div>
-            <label for="password">Mot de passe :</label>
-            <input type="password" id="password" name="password" required>
-          </div>
-          <div>
-            <label for="confirm_password">Confirmation de mot de passe :</label>
-            <input type="password" id="confirm_password" name="confirm_password" required>
-          </div>
-          <div class="mt-2">
-            <button type="submit" class="btn btn-success">S'inscrire</button>
-          </div>
-        </form>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-
-    <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="joinHelpLabel">Connexion - Panel</h4>
-                </div>
-
-
-   
-
-
-<form method="POST" action="login.php">
-    <label for="pseudo">Pseudo :</label>
-    <input type="text" id="pseudo" name="pseudo" required><br><br>
-    <label for="password">Mot de passe :</label>
-    <input type="password" id="password" name="password" required><br><br>
-    <div>
-        <button type="submit" class="btn btn-success">S'inscrire</button>
-    </div>
-</form>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="profil" tabindex="-1" role="dialog" aria-labelledby="profil" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <?php
-          echo '<h4 class="modal-title" id="joinHelpLabel">Profil - '. $_SESSION["pseudo"] .'</h4>';
-        ?>
-      </div>
-      <div class="modal-body text-center">
-        <?php
-          echo '<img src="https://minotar.net/avatar/'. $_SESSION["pseudo"] .'/100" style="margin-bottom: 20px;">';
-        ?>
-        <p>Grade : </p>
-        <p>Date d'inscription : </p>
-        <p>Vote : </p>
-        <div style="margin-top: 20px;">
-          <button type="submit" class="btn btn-success">S'inscrire</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 
 
 

@@ -17,9 +17,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
             // Hacher le mot de passe avec l'algorithme de hachage MD5
             $hashed_password = md5($password);
-
+            date_default_timezone_set('Europe/Paris');
             // Récupérer la date d'aujourd'hui
-            $today = date("Y-m-d-h-m-s");
+            $today = date("Y-m-d H:i:s");
 
             // Établir une connexion à la base de données
             $servername = "localhost";
